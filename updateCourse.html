@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    <form action="{{ url_for('updateCourse', courseName=course['courseName']) }}" method="post">
+        Enter your cousreName : <input type="text" name="courseName"  disabled value="{{ course['courseName']}}">
+        <br><br>
+        Enter your teacherName : <input type="text" name="teacherName" required>
+        <br><br>
+        Enter your courseId : <input type="text" name="courseID"  disabled value="{{ course['courseID']}}">
+        <br><br>
+        <!--Enter your teacherID : <input type="text" name="teacherID" required>
+        <br><br>
+        Enter your classID : <input type="text" name="classID" required>
+        -->
+        <br><br>
+        <button type="submit" value="submit">Update Student</button>
+    </form>
+{% endblock %}

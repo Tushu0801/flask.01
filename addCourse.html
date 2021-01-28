@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="{{ url_for('addCourse') }}" method="post">
+        Enter your cousreName : <input type="text" name="courseName" required>
+        <br><br>
+        Enter your teacherName : <input type="text" name="teacherName">
+        <br><br>
+        Enter your courseId : <input type="text" name="courseID">
+        <br><br>
+        <!--Enter your teacherID : <input type="text" name="teacherID">
+        <br><br>
+        Enter your classID : <input type="text" name="classID">
+        <br><br>
+        -->
+        <br><br>
+        <button type="submit" value="submit">Add new Course</button>
+    </form>
+{% endblock %}

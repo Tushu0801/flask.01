@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<table style="width:100%">
+       <tr>
+       <th><h1>CourseName </h1> </th>
+       
+       <th><h1>TeacherName </h1> </th>
+       
+       <th><h1>CourseID </h1> </th>
+       
+       <th><h1>TeacherID</h1> </th>
+       
+       <th><h1>ClassID </h1></th>
+       </tr>
+       </table>   
+    {% if courseList|length>0 %}
+        {% for course in courseList %}
+            <div>
+            
+            <ul style = "overflow: hidden;">
+                <li style="position:absolute; margin-left:5%; display: inline-block; width:150px">  {{ course['courseName'] }}</li>
+                <li style=" position:absolute;margin-left:30%; display: inline-block; width:150px"> {{ course['teacherName'] }} </li>
+                <li style="position:absolute; margin-left:53%; display: inline-block;"> {{ course['courseID'] }}</li>
+                <li style=" position:absolute;margin-left:72%; display: inline-block;">  {{ course['teacherID'] }}</li>
+                <li style="position:absolute; margin-left:90%; display: inline-block;"> {{course['classID']}}</li>
+            </ul>    
+            </div>
+            
+            <br>
+            <a href="{{ url_for('deleteCourse' , courseName=course['courseName']) }}" style="margin-left:44%">Delete</a>
+            <a href="{{ url_for('updateCourse' , courseName=course['courseName']) }}"style="margin-left:1%">Update</a>
+            <br>
+            
+        {% endfor %}
+    {% else %}
+    <p>No records found!</p>
+    {% endif %}
+    <br>
+    <br>
+    <a href="{{ url_for('addCourse') }}"style="margin-left:45%">Add Course</a>
+{% endblock %}
